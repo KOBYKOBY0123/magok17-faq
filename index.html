@@ -77,6 +77,42 @@ h1 em{font-style:normal;color:var(--green)}
 .action ul li::before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--green)}
 .action .sub{margin-top:6px;font-size:12px;color:#3A6553}
 .action .memo{margin-top:8px;background:#fff;border:1px dashed #B6D8C6;border-radius:9px;padding:8px 11px;font-size:12.5px;color:#3A6553}
+.action a.klink,.abody a.klink{
+  display:inline-flex;align-items:center;gap:4px;
+  background:#FAE100;color:#3A1D1D;font-weight:800;text-decoration:none;
+  padding:2px 9px 2px 8px;border-radius:7px;letter-spacing:-0.01em;white-space:nowrap;
+}
+.action a.klink::before,.abody a.klink::before{content:"💬";font-size:12px}
+.action a.klink:active,.abody a.klink:active{opacity:.75}
+.action a.glink{display:inline-flex;align-items:center;gap:6px;margin-top:10px;background:var(--green-deep);color:#fff;font-weight:800;text-decoration:none;padding:8px 15px;border-radius:9px;font-size:13px}
+.action a.glink::before{content:"📝"}
+.action a.glink:active{opacity:.82}
+/* ---- 접이식 공지 버튼 ---- */
+.promos{display:flex;gap:9px;margin-top:14px}
+.promo{
+  flex:1 1 0;min-width:0;display:flex;align-items:center;gap:9px;
+  background:var(--green-tint);border:1.5px solid #B6D8C6;border-radius:12px;
+  padding:12px 12px;cursor:pointer;font-family:inherit;text-align:left;
+  transition:border-color .15s,background .15s;
+}
+.promo:active{background:#D8EAE0}
+.promo.on{background:#fff;border-color:var(--green)}
+.promo .pico{
+  flex:0 0 auto;width:32px;height:32px;border-radius:9px;background:#fff;
+  border:1px solid #C4E0D2;display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.promo.on .pico{background:var(--green-tint)}
+.promo .ptxt{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.promo .ptxt b{font-size:12.5px;font-weight:800;color:var(--green-deep);letter-spacing:-0.04em;line-height:1.3;white-space:nowrap}
+.promo .ptxt small{font-size:11px;color:#4E7A66;font-weight:600;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.promo .ptxt .req{display:inline-block;margin-left:4px;font-size:11px;font-weight:800;color:#B03030;background:#FDECEC;border-radius:5px;padding:1.5px 6px;letter-spacing:-0.01em;white-space:nowrap;vertical-align:1px}
+.promo .pchev{flex:0 0 auto;width:15px;height:15px;stroke:var(--green-deep);transition:transform .2s}
+.promo.on .pchev{transform:rotate(180deg)}
+.promo-body{display:none;margin-top:9px}
+.promo-body.open{display:block}
+@media (max-width:520px){
+  .promos{flex-direction:column;gap:8px}
+}
 
 /* ---------- sticky tools ---------- */
 .tools{
@@ -209,7 +245,7 @@ footer{
     <b>모든 금융·서류 요청은 반드시 공지방·네이버 카페·은행 공식 창구로만 확인</b>하고, 개인에게 서류나 돈을 보내지 마세요.
   </div>
   <div class="notice">
-    <b>기준일 2026. 8. 20.</b> — 입주예정자들이 나눈 대화와 은행·SH 안내를 이웃끼리 정리한 <b>비공식 참고 자료</b>입니다. 정확성을 위해 노력했지만 오류나 변경이 있을 수 있고, 대출·일정 등은 협의 진행에 따라 계속 바뀝니다.
+    <b>기준일 2026. 8. 22.</b> — 입주예정자들이 나눈 대화와 은행·SH 안내를 이웃끼리 정리한 <b>비공식 참고 자료</b>입니다. 정확성을 위해 노력했지만 오류나 변경이 있을 수 있고, 대출·일정 등은 협의 진행에 따라 계속 바뀝니다.
     <b>대출·잔금·계약 같은 중요한 결정은 반드시 은행·SH·법무법인 등 공식 창구에서 직접 확인</b>해 주세요. 이 자료를 참고해 내린 판단의 책임은 이용자 본인에게 있습니다. <b>공지방·카페 공지와 공식 안내가 항상 우선</b>합니다.
   </div>
   <div class="keyinfo">
@@ -217,18 +253,53 @@ footer{
       <svg fill="none" stroke-width="2.2" viewBox="0 0 24 24"><path d="M15 7a2 2 0 0 1 2 2m4-1a6 6 0 0 1-7.7 5.7l-1.8 1.8H10v1.9H8.1V20H4v-3.4l5.5-5.5A6 6 0 1 1 21 8Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
       🔑 잔금 전 키불출 — 최종 협의 안내 (많이 묻는 사항)
     </div>
-    잔금 전 키불출은 <b>세대당 최대 3회</b>, <b>각자 잔금일의 7일 전부터</b> 가능합니다(예: 8/28 잔금 → 8/21부터, 8/29 잔금 → 8/22부터). 가장 빠른 잔금일이 8/28이라 일반 키불출은 <b>8/21부터 시작</b>됩니다(8/18~20 에어컨 설치는 삼성 공구 세대만).
-    <br>▸ 잔금 전 가능(5가지): <b>탄성코트·나노코팅·새집증후군·줄눈·입주청소</b> / 잔금 후 가능: 커튼·냉장고장·중문·매트·조명 등 인테리어.
-    <br><b class="warn">실측만을 위한 키불출은 불가</b>합니다.
+    <b class="warn">[8/22 변경 — SH 요청으로 전면 조정]</b> 무단·편법 시공이 잇따라 키불출 기준이 축소됐습니다. 기타 시공(아래 5가지)은 <b>각자 잔금일의 3일 전부터</b> 가능합니다(예: 8/28 잔금 → 8/25부터). <b>시스템에어컨만 잔금 7일 전</b>부터 가능하며, 방장 통해 일정 확정이 필요합니다.
+    <br>▸ 잔금 3일 전 가능(5가지): <b>탄성코트·나노코팅·새집증후군·줄눈·입주청소</b> / 잔금 후 가능: 커튼·냉장고장·중문·매트·조명 등 인테리어.
+    <br><b class="warn">실측만을 위한 키불출은 불가</b>합니다. 해당 기간 다회 가능하나 꼭 필요한 횟수로 최소화해 주세요. <b class="warn">이 기준마저 안 지켜지면 '잔금 3일 전 단 1회'로 더 축소될 수 있습니다.</b>
     <br><span class="warn">이미 협의된 내용이니, SH·입주지원센터에 개별 민원·문의는 자제해 주세요.</span> 자세한 내용은 아래 '<b>키불출</b>' 검색으로 확인하세요.
   </div>
+  <div class="promos">
+    <button class="promo" data-target="pb-gform" aria-expanded="false">
+      <span class="pico">📢</span>
+      <span class="ptxt"><b>잔금 전 시공 일정 사전조사<span class="req">필수</span></b><small>구글폼 · 탭하여 열기</small></span>
+      <svg class="pchev" fill="none" stroke-width="2.4" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="promo" data-target="pb-aircon" aria-expanded="false">
+      <span class="pico">❄️</span>
+      <span class="ptxt"><b>시스템에어컨 설치 일정 조사<span class="req">개별 구매 시 필수</span></b><small>오픈톡방 · 탭하여 열기</small></span>
+      <svg class="pchev" fill="none" stroke-width="2.4" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <div class="promo-body" id="pb-gform">
+  <div class="action">
+    <div class="head">
+      <svg fill="none" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 11l3 3 8-8M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      📢 잔금 전 시공 일정 사전조사 (구글폼)
+    </div>
+    SH와 협의된 <b>잔금 전 시공 일정</b>을 미리 취합하기 위해 구글폼 조사를 진행합니다. <b>현재 협의된 시공 가능 일정(잔금 3일 전~) 안에서만</b> 신청할 수 있습니다.
+    <div class="memo">
+      <b>✅ 신청 기준</b>
+      <ul>
+        <li>안내된 시공 가능 일정 <b>외 날짜는 신청 불가</b></li>
+        <li>잔금일 기준 <b>3일 전부터 가능한 세대만</b> 신청 가능</li>
+        <li>구글폼에 <b>사전 명단을 작성한 세대에 한해</b> SH와 일정 조율</li>
+        <li>명단 미작성 세대는 별도 일정 조율 없음</li>
+      </ul>
+    </div>
+    <div class="sub"><b>⚠️ 미작성 세대는 기존 원칙대로 '잔금 3일 전 1회'만 가능</b>합니다. 구글폼에 작성해도 잔금 3일 전 기준·안내 일정에 맞지 않으면 조율 대상에서 제외됩니다. 필요하신 세대는 반드시 기간 내 작성해 주세요.</div>
+    <a class="glink" href="https://forms.gle/1w31Lt2EGgF9JEBp7" target="_blank" rel="noopener">구글폼 작성하기</a>
+  </div>
+  </div>
+
+  <div class="promo-body" id="pb-aircon">
   <div class="action">
     <div class="head">
       <svg fill="none" stroke-width="2.2" viewBox="0 0 24 24"><path d="M3 8h13a4 4 0 0 1 0 8h-1M3 8v8h9M7 20v-4M11 20v-4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       📢 시스템에어컨 개별 설치 일정 공유 요청
     </div>
     SH 측에 개별 시스템에어컨 설치 일정을 전달해야 하니, <b>개별 설치 예정 세대</b>는 아래 내용을 작성해
-    <br><b>방장 오픈톡방"https://open.kakao.com/o/sUjMR7Di"</b>으로 보내주세요.
+    <a class="klink" href="https://open.kakao.com/o/sUjMR7Di" target="_blank" rel="noopener">방장 오픈톡방</a> 으로 보내주세요.
     <div class="sub">※ <b>삼성 공동구매</b> 및 <b>LG 마곡아이티솔루션</b> 계약자는 제출하지 않으셔도 됩니다.</div>
     <div class="memo">
       <b>[작성 내용]</b>
@@ -239,6 +310,7 @@ footer{
         <li>설치일</li>
       </ul>
     </div>
+  </div>
   </div>
 </header>
 
@@ -364,6 +436,7 @@ a:[`재신청 시 <b>'심사 최소 5영업일 소요' 안내</b>가 뜹니다. 
 {c:"대출·기금", hot:0, id:"loan-register",
 q:"아직 등기가 안 났는데 대출 신청이 되나요?",
 a:[`됩니다. 토지임대부 분양주택은 <b>2026. 6. 22. 은행권 지침으로 등기(후취담보) 없이 대출 신청·실행이 가능</b>하도록 개선됐습니다. 등기사항전부증명서는 '추후 제출'로 처리합니다.`,
+`<b>[8/21 업데이트] 보존등기가 완료</b>됐습니다. 인터넷등기소·포털에서 <b>집합건물 도로명주소로 검색</b>하면 확인할 수 있습니다. 보존등기가 끝나 대출 실행·소유권이전 등기 절차가 한결 수월해졌습니다.`,
 `창구 직원이 모르는 경우가 많으니 <b>"본사 기금부서에 토지임대부 공문을 확인해달라"</b>고 요청하면 진행됩니다.`]},
 
 {c:"대출·기금", hot:1, id:"loan-docs",
@@ -442,7 +515,7 @@ a:[`선납할인은 <b>잔금 전액을 미리 납부</b>해야 적용됩니다.
 {c:"잔금·등기·세금", hot:1, id:"pay-key",
 q:"잔금·키불출·이사 날짜는 각각 달라도 되나요? 키는 언제 받나요?",
 a:[`<b>잔금을 납부하면 키불출</b>이 가능하고, 세 날짜가 꼭 같을 필요는 없습니다. 실제 이사일은 엘리베이터 예약(입주지원센터) 기준으로 잡으면 됩니다.`,
-`잔금 전에도 <b>잔금일 7일 전부터 키불출</b>을 받아 <b>시스템에어컨·줄눈·탄성코트·새집증후군 시공·입주청소</b>까지는 진행할 수 있게 협의됐습니다. <b>그 외 인테리어(구조·조명 공사 등)는 잔금 납부 후</b>에만 가능합니다.`]},
+`잔금 전에도 키불출을 받아 일부 시공은 미리 할 수 있게 협의됐습니다(8/22 변경). <b>기타 시공(줄눈·탄성코트·나노코팅·새집증후군·입주청소)은 잔금일 3일 전부터</b>, <b>시스템에어컨은 잔금 7일 전부터</b> 가능합니다. <b>그 외 인테리어(구조·조명 공사 등)는 잔금 납부 후</b>에만 가능합니다. 자세한 기준은 '<b>키불출</b>' 항목을 확인하세요.`]},
 
 {c:"잔금·등기·세금", hot:0, id:"tax-stamp",
 q:"인지세는 어떻게 내나요?",
@@ -472,11 +545,11 @@ a:[`<b>사전점검을 신청했던 앱(아트리온)에서 하자 등록</b>을
 /* ================= 입주 · 이사 ================= */
 {c:"입주·이사", hot:1, id:"move-key",
 q:"잔금 전 키불출(열쇠), 언제부터 몇 번까지 가능한가요?",
-a:[`<b>[8/20 정리 기준]</b> 잔금 전 키불출은 <b>세대당 최대 3회</b>, <b>각자 잔금(입주)일의 7일 전부터</b> 가능합니다(이삿날이 아니라 잔금납부일 기준). 예: <b>8/28 잔금 → 8/21부터</b>, <b>8/29 잔금 → 8/22부터</b>… 이렇게 잔금일에서 7일을 빼면 됩니다. <b>잔금을 이미 완납한 세대</b>는 7일 규칙과 무관하게 8/21부터 가능합니다.`,
-`가장 빠른 잔금일이 8/28이라, <b>일반 키불출은 그 7일 전인 8/21부터 시작</b>됩니다. 8/18~20에 에어컨 설치가 보여 "18일부터 되나?" 헷갈릴 수 있는데, <b>8/18~20은 삼성 공동구매 에어컨 설치일이라 그 세대만 불출</b>된 것이고 일반 키불출과는 별개입니다.`,
+a:[`<b>[8/22 변경·SH 요청으로 전면 조정]</b> 기타 시공(아래 5가지)은 <b>각자 잔금(입주)일의 3일 전부터</b> 가능합니다(이삿날이 아니라 잔금납부일 기준). 예: <b>8/28 잔금 → 8/25부터</b>, <b>8/29 잔금 → 8/26부터</b>… 잔금일에서 3일을 빼면 됩니다. 해당 기간 <b>키불출은 여러 번 가능하나, 꼭 필요한 횟수로 최소화</b>해 달라는 요청입니다. (<b>시스템에어컨만 잔금 7일 전</b>부터 가능 — 아래 별도 안내.)`,
+`<b>왜 바뀌었나</b> — 8/18~20은 삼성 공동구매 에어컨 시공만 허용된 기간이었는데, 이때 무단·편법 출입으로 기타 시공을 진행한 세대가 다수 확인돼 현장 통제가 어려워졌고, 결국 SH가 키불출 일정 전면 조정을 요청했습니다. <b class="warn">이 3일 전 기준마저 지켜지지 않으면 '잔금 3일 전부터 단 1회'로 다시 제한될 수 있습니다.</b> 몇몇 세대의 무리한 행동으로 전체 577세대의 조건이 계속 나빠지고 있으니, 정해진 기준을 꼭 지켜 주세요.`,
 `<b>✅ 키불출로 가능한 작업 5가지</b>: 탄성코트 · 나노코팅 · 새집증후군 시공 · 줄눈 · 입주청소. <b>이 5가지 외에는 작고 사소해도, 크고 중대해도, 가구가 들어와야 해도 불가</b>합니다.`,
 `<b>🚫 실측만을 위한 키불출은 목적과 무관하게 불가</b>합니다(냉장고·인테리어·시스템에어컨 실측 모두). 시공이 예정된 날에 함께 진행하는 것만 됩니다.`,
-`<b>시스템에어컨</b>: 삼성 마곡점 공동구매는 확정된 설치일에 키불출됩니다. <b>LG 아이티솔루션 공동구매</b>는 별도 확정 일정(각자 잔금 7일 전부터)에 시공 가능합니다. <b>그 외(개별 업체) 에어컨은 방장께 개별 설치 일정을 안내된 작성 내용에 맞춰 보내고 승인받아야</b> 합니다(위 '개별 에어컨' 항목 참고). 별도 실측 방문은 공식적으로는 안 됩니다.`,
+`<b>시스템에어컨(기타 시공과 달리 잔금 7일 전부터 가능)</b>: 삼성 마곡점 공동구매는 <b>지정된 설치일에만</b> 키불출됩니다. <b>삼성·LG 아이티솔루션 공동구매 외 개별 업체</b>는 <a class="klink" href="https://open.kakao.com/o/sUjMR7Di" target="_blank" rel="noopener">방장 오픈톡방</a>에 설치 예정일을 전달해야 합니다(프로세스: 방장 → SH 언질이라 반드시 안내 필요, 위 '개별 에어컨' 항목 참고). 별도 실측 방문은 공식적으로는 안 됩니다.`,
 `<b>❌ 잔금 전에는 불가한 작업</b>: 커튼 · 냉장고장 · 중문 · 매트 · 조명 및 기타 모든 인테리어 공사(잔금 전이면 법적으로 서울시 소유라 임의 시공 불가). 이 작업들은 잔금 납부 후 진행합니다.`,
 `<b>📏 실측하러 방문할 때 요령</b>: 실측차 방문하더라도 입주지원센터에는 <b>"실측하러 왔다"가 아니라 "시스템에어컨 시공하러 왔다"</b>고 말씀하세요. 당일 시공이 어려우면 그날은 <b>미완료로 처리하고 실제 설치일에 다시 키불출</b>을 받으면 됩니다. <b>실측만을 위한 별도 키불출은 공식적으로 허용되지 않습니다.</b> 한 사람 때문에 전체 협의가 깨지지 않도록 협조 부탁드립니다.`,
 `키불출은 실제 열쇠를 주는 게 아니라, <b>입주지원센터 직원이 직접 세대 문을 열어주고 퇴거(오후 5시경) 후 공실 확인 뒤 폐문</b>하는 방식입니다(오후 5시에 전원이 차단되고 건설사 직원도 퇴근). <b>본인확인 필수</b>(대리 시 위임장+가족관계증명서). <b>SH에 따로 연락할 필요 없이 작업 당일 입주지원센터에서 키불출</b> 받으면 됩니다.`],
@@ -496,8 +569,14 @@ w:"이사 예약은 선착순이고 라인별 배정 수 제한이 있어, 원�
 
 {c:"입주·이사", hot:0, id:"move-clean",
 q:"입주청소·새집증후군 시공은 언제 할 수 있나요?",
-a:[`<b>잔금일 7일 전 키불출 후</b> 가능합니다(에어컨·줄눈·탄성코트와 함께 허용된 항목). 순서는 <b>입주청소 → 새집증후군 시공</b>이 일반적입니다.`,
+a:[`<b>잔금일 3일 전 키불출 후</b> 가능합니다(줄눈·탄성코트·나노코팅과 함께 허용된 5가지 항목, 8/22 변경). 순서는 <b>입주청소 → 새집증후군 시공</b>이 일반적입니다.`,
 `줄눈·입주청소 등 공동구매 업체 시공 시에는 <b>세대 확약서 서명</b>이 필요할 수 있으니 공지를 확인하세요. 시공 당일 본인 입회 여부는 항목별로 다르니 업체·공지로 확인이 필요합니다.`]},
+
+{c:"입주·이사", hot:1, id:"move-affidavit",
+q:"확약서는 어떤 건가요? 5가지 시공 확약서와 에어컨 확약서가 다른가요?",
+a:[`<b>두 확약서는 별개 양식</b>입니다. ① 등기로 받은 안내문에 나온 확약서와 ② 에어컨 시공용 확약서는 서로 다른 서식이니 헷갈리지 마세요.`,
+`<b>5가지 시공(탄성코트·나노코팅·새집증후군·줄눈·입주청소)용 확약서</b>는 <b>입주지원센터에 비치</b>돼 있습니다. 업체가 <b>위임장을 가지고 가면 확약서도 대신 작성</b>해 줍니다.`,
+`<b>에어컨 시공용 확약서</b>는 에어컨 시공 때 어차피 본인이 반드시 가야 하므로, <b>그날 현장에서 직접 작성</b>하면 됩니다.`]},
 
 {c:"입주·이사", hot:0, id:"move-internet",
 q:"인터넷 설치는 언제부터 가능한가요?",
@@ -512,7 +591,7 @@ w:"미리내집(장기전세) 세대도 설치는 가능하지만 퇴거 시 원
 
 {c:"인테리어·가전", hot:1, id:"int-aircon-individual",
 q:"공동구매가 아닌 개별 에어컨은 어떻게 설치 신청하나요?",
-a:[`<b>삼성 공동구매·LG 마곡아이티솔루션 계약자 외</b>에, 별도 개별 업체로 에어컨을 설치하는 세대는 <b>방장 오픈톡방에 개별 설치 일정을 신청·승인</b>받아야 합니다.`,
+a:[`<b>삼성 공동구매·LG 마곡아이티솔루션 계약자 외</b>에, 별도 개별 업체로 에어컨을 설치하는 세대는 <a class="klink" href="https://open.kakao.com/o/sUjMR7Di" target="_blank" rel="noopener">방장 오픈톡방</a>에 <b>개별 설치 일정을 신청·승인</b>받아야 합니다.`,
 `제출 형식은 <b>[동·호수 / 실제 시공업체명(삼성·LG 아님) / 잔금일 / 설치일]</b>입니다. 이 내용을 방장 오픈톡방에 올려 개별 설치 일정을 잡으면 됩니다.`,
 `오픈톡방에 올리는 항목이라 <b>개인정보에 해당하지 않으니</b> 부담 없이 신청하셔도 됩니다.`],
 w:"공동구매(삼성·LG) 계약자는 이 신청 대상이 아닙니다. 확정된 공동구매 설치일에 키불출됩니다."},
@@ -529,7 +608,7 @@ a:[`온누리 페이백은 <b>9/5 이전에 '설치 완료(전원 온)'가 인�
 
 {c:"인테리어·가전", hot:0, id:"int-grout",
 q:"줄눈·탄성코트는 꼭 해야 하나요?",
-a:[`필수는 아니고 <b>유지관리 편의성의 문제</b>입니다. "때가 덜 끼고 관리가 쉬워진다" 정도의 선택 시공이라, 쓰다가 나중에 하는 세대도 있습니다. 하는 경우 잔금 7일 전 키불출 시기에 입주청소와 함께 진행하는 게 일반적입니다.`]},
+a:[`필수는 아니고 <b>유지관리 편의성의 문제</b>입니다. "때가 덜 끼고 관리가 쉬워진다" 정도의 선택 시공이라, 쓰다가 나중에 하는 세대도 있습니다. 하는 경우 잔금 3일 전 키불출 시기에 입주청소와 함께 진행하는 게 일반적입니다.`]},
 
 {c:"인테리어·가전", hot:0, id:"int-remodel",
 q:"인테리어 공사는 언제부터? 통업체와 개별공사 중 뭐가 나은가요?",
@@ -624,7 +703,7 @@ function render(){
   emptyEl.style.display = shown? 'none':'block';
   countEl.innerHTML = q
     ? `"<b>${esc(q)}</b>" 검색 결과 <b>${shown}</b>개`
-    : `총 <b>${shown}</b>개 질문 · 2026.7.1~8.20 기준`;
+    : `총 <b>${shown}</b>개 질문 · 2026.7.1~8.22 기준`;
   bindItems();
 }
 
@@ -690,6 +769,26 @@ window.addEventListener('hashchange', openHash);
 const totop = document.getElementById('totop');
 window.addEventListener('scroll', ()=>{ totop.style.display = scrollY>600? 'block':'none'; });
 totop.onclick = ()=>scrollTo({top:0,behavior:'smooth'});
+
+/* 접이식 공지 버튼 */
+document.querySelectorAll('.promo').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const body = document.getElementById(btn.dataset.target);
+    const willOpen = !body.classList.contains('open');
+    // 다른 공지는 모두 닫기 (아코디언)
+    document.querySelectorAll('.promo').forEach(b=>{
+      b.classList.remove('on');
+      b.setAttribute('aria-expanded','false');
+    });
+    document.querySelectorAll('.promo-body').forEach(pb=>pb.classList.remove('open'));
+    // 방금 누른 버튼만 열기(이미 열려 있던 걸 다시 누르면 닫힘)
+    if(willOpen){
+      body.classList.add('open');
+      btn.classList.add('on');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
 
 buildChips();
 render();
